@@ -1,15 +1,23 @@
 # Getting Started
 
-A template for kick starting a Cloudflare worker project using [`workers-rs`](https://github.com/cloudflare/workers-rs).
+Kind of hellow word using [`workers-rs`](https://github.com/cloudflare/workers-rs) and Cloudflare KV.
 
-This template is designed for compiling Rust to WebAssembly and publishing the resulting worker to 
+Based on template for compiling Rust to WebAssembly and publishing the resulting worker to 
 Cloudflare's [edge infrastructure](https://www.cloudflare.com/network/).
 
 ## Usage 
 
-This template starts you off with a `src/lib.rs` file, acting as an entrypoint for requests hitting
-your Worker. Feel free to add more code in this file, or create Rust modules anywhere else for this
-project to use. 
+This worker starts you off with a `src/lib.rs` file, acting as an entrypoint for requests hitting
+your Worker. You can use only crates and modules that compile to the wasm32-unknown-unknown target. See Cargo.toml for example of Chrono crate (library) parameters.
+
+You need to upload data to your KV store, code looks for "KV_JMENINY" store. There is example json file that can be uploaded to store.
+
+```bash
+# upload to preview store
+wrangler kv:bulk put --binding=KV_JMENINY --preview jmeniny2.json
+# upload to production
+wrangler kv:bulk put --binding=KV_JMENINY jmeniny2.json
+```
 
 With `wrangler`, you can build, test, and deploy your Worker with the following commands: 
 
