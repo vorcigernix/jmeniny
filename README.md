@@ -1,6 +1,6 @@
 # Getting Started
 
-Kind of hellow word using [`workers-rs`](https://github.com/cloudflare/workers-rs) and Cloudflare KV.
+Kind of hello-world-ish service using [`workers-rs`](https://github.com/cloudflare/workers-rs) and Cloudflare KV.
 
 Based on template for compiling Rust to WebAssembly and publishing the resulting worker to 
 Cloudflare's [edge infrastructure](https://www.cloudflare.com/network/).
@@ -46,4 +46,6 @@ Read more about this on the [`workers-rs` project README](https://github.com/clo
 
 If you have any problems with the `worker` crate, please open an issue on the upstream project 
 issue tracker on the [`workers-rs` repository](https://github.com/cloudflare/workers-rs).
+
+
 
