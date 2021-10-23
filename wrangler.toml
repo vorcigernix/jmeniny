@@ -1,0 +1,27 @@
+name = "jmeniny"
+type = "javascript"
+workers_dev = true
+compatibility_date = "2021-10-15"
+compatibility_flags = [ "formdata_parser_supports_files" ] # required
+
+kv_namespaces = [
+  { binding = "KV_JMENINY", preview_id = "34a4d9a99bc14225a2fc31677db4b746", id = "9e419d35fc1c4159956d707ad907aca9" }
+]
+
+[vars]
+WORKERS_RS_VERSION = "0.0.6"
+
+[build]
+command = "cargo install -q worker-build && worker-build --release" # required
+
+[build.upload]
+dir    = "build/worker"
+format = "modules"
+main   = "./shim.mjs"
+
+[[build.upload.rules]]
+globs = ["**/*.wasm"]
+type  = "CompiledWasm"
+
+# read more about configuring your Worker via wrangler.toml at:
+# https://developers.cloudflare.com/workers/cli-wrangler/configuration
